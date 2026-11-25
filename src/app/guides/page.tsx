@@ -11,11 +11,13 @@ export default function GuidesIndex() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">절세 가이드</h1>
-      <ul className="space-y-4">
+      <ul className="divide-y divide-line">
         {guides.map((g) => (
           <li key={g.slug}>
-            <Link href={`/guides/${g.slug}/`} className="font-semibold underline underline-offset-2">{g.title}</Link>
-            <p className="mt-1 text-sm opacity-80">{g.description}</p>
+            <Link href={`/guides/${g.slug}/`} className="block py-4">
+              <p className="font-semibold">{g.title}</p>
+              <p className="mt-1 text-sm opacity-70">{g.description}</p>
+            </Link>
           </li>
         ))}
       </ul>
