@@ -4,7 +4,7 @@ const DAY = 86_400_000;
 
 export class SeveranceInputError extends Error {}
 
-function parseDate(s: string, name: string): number {
+export function parseDate(s: string, name: string): number {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
   if (!m) throw new SeveranceInputError(`${name}을(를) YYYY-MM-DD 형식으로 입력해 주세요.`);
   const t = Date.UTC(+m[1], +m[2] - 1, +m[3]);
@@ -14,7 +14,7 @@ function parseDate(s: string, name: string): number {
 }
 
 /** t에서 n개월 이동 (말일 보정: 5/31 − 3개월 = 2/28·29) */
-function addMonths(t: number, n: number): number {
+export function addMonths(t: number, n: number): number {
   const d = new Date(t);
   const y = d.getUTCFullYear();
   const m = d.getUTCMonth() + n;

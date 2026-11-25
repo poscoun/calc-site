@@ -11,6 +11,13 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "unemployment-benefit-2026",
+    title: "2026년 실업급여 얼마 받나? 하루 66,048원~68,100원, 계산법 총정리",
+    description: "2026년 실업급여는 하루 최소 66,048원, 최대 68,100원입니다. 월급 300만 원, 35세, 가입 4년이면 180일간 약 1,189만 원. 계산법, 받는 일수, 신청 조건을 정리했습니다.",
+    calculator: "unemployment-benefit",
+    published: "2026-11-25",
+  },
+  {
     slug: "yearend-additional-tax",
     title: "연말정산 추가 납부가 나오는 이유와 줄이는 법 (원천징수 80·100·120%)",
     description: "연봉 5,000만 원에 공제가 적으면 원천징수 100%여도 13만 원을 더 냅니다. 80%를 고르면 71만 원으로 늘어납니다. 추가 납부 원인, 분납, 원천징수 비율 바꾸는 법을 정리했습니다.",
