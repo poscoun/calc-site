@@ -29,6 +29,7 @@ export default function GuideFooter({ slug }: { slug: string }) {
         </div>
       )}
       <p className="text-xs opacity-60">
+        {self && <>작성일 <time dateTime={self.published}>{self.published.replaceAll("-", ". ")}.</time> · </>}
         예시 금액은 본 사이트 계산기로 계산한 추정치이며, 개인 상황에 따라 달라질 수 있습니다. 기준: 2026년 11월 현재 법령.
       </p>
     </aside>

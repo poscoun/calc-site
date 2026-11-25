@@ -117,7 +117,10 @@ export function estimateNetSalary(input: NetSalaryInput): NetSalaryResult {
   const annual = requireInt(input.annualSalary, "연봉", 0, 100_000_000_000);
   const nonTaxable = requireInt(input.monthlyNonTaxable, "비과세액", 0, 100_000_000);
   const family = requireInt(input.family, "공제대상가족 수", 1, 50);
-  const children = requireInt(input.children, "자녀 수", 0, family - 1);
+  const children = input.children;
+  if (!Number.isInteger(children) || children < 0 || children >= family) {
+    throw new NetSalaryInputError("자녀 수는 본인을 포함한 공제대상가족 수보다 적어야 합니다.");
+  }
   const ratio = input.taxRatio ?? 100;
   if (ratio !== 80 && ratio !== 100 && ratio !== 120) {
     throw new NetSalaryInputError("원천징수 비율은 80, 100, 120 중 하나여야 합니다.");
