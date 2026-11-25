@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { default: "생활 계산기", template: "%s | 생활 계산기" },
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
   description: "연말정산, 연봉 실수령액, 퇴직금 등 생활 금융 계산기와 상황별 해설",
+  alternates: { canonical: "./" },
+  openGraph: { siteName: SITE_NAME, locale: "ko_KR", type: "website" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -13,7 +17,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="antialiased min-h-screen flex flex-col">
         <header className="border-b border-black/10 dark:border-white/10">
           <nav className="mx-auto max-w-3xl px-4 py-3">
-            <Link href="/" className="font-bold">생활 계산기</Link>
+            <Link href="/" className="font-bold">{SITE_NAME}</Link>
           </nav>
         </header>
         <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">{children}</main>
