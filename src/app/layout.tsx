@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { calculators } from "@/lib/calculators";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { ADSENSE_CLIENT, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -14,11 +14,21 @@ export const metadata: Metadata = {
   verification: {
     other: { "naver-site-verification": "124378ed62369d81d8ce884d9f302ea0376a9e02" },
   },
+  // 애드센스 사이트 소유 확인
+  other: { "google-adsense-account": ADSENSE_CLIENT },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
+      <head>
+        {/* 애드센스: 정적 HTML <head>에 있어야 사이트 확인 크롤러가 읽는다 */}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="antialiased min-h-screen flex flex-col">
         <header className="sticky top-0 z-20 border-b border-line bg-background/95 backdrop-blur">
           <nav className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
