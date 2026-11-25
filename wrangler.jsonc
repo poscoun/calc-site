@@ -7,5 +7,8 @@
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page"
-  }
+  },
+  // PR 미리보기 빌드(`npx wrangler preview`)에 필요. 비어 있어도 됨.
+  // 없으면 "configuration is missing a `previews` block" 오류로 미리보기 배포가 실패한다.
+  "previews": {}
 }
