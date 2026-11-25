@@ -20,8 +20,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="ko">
       <body className="antialiased min-h-screen flex flex-col">
         <header className="border-b border-black/10 dark:border-white/10">
-          <nav className="mx-auto max-w-3xl px-4 py-3">
+          <nav className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
             <Link href="/" className="font-bold">{SITE_NAME}</Link>
+            <Link href="/guides/" className="text-sm">절세 가이드</Link>
           </nav>
         </header>
         <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">{children}</main>
