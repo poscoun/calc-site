@@ -87,4 +87,13 @@ describe("estimateNetSalary", () => {
     expect(() => estimateNetSalary({ annualSalary: -1, monthlyNonTaxable: 0, family: 1, children: 0 })).toThrow(NetSalaryInputError);
     expect(() => estimateNetSalary({ annualSalary: 1, monthlyNonTaxable: 0, family: 1, children: 1 })).toThrow(NetSalaryInputError);
   });
+
+  it("해설글(net-salary-deductions-2026) 예시 수치", () => {
+    const base = { annualSalary: 40_000_000, monthlyNonTaxable: 200_000, family: 1, children: 0 };
+    expect(estimateNetSalary({ ...base, family: 2 }).monthlyNet).toBe(2_955_063);
+    expect(estimateNetSalary({ ...base, family: 3, children: 1 }).incomeTax).toBe(15_070);
+    expect(estimateNetSalary({ ...base, monthlyNonTaxable: 0 }).monthlyNet).toBe(2_893_733);
+    expect(estimateNetSalary({ ...base, severanceIncluded: true }).monthlyNet).toBe(2_728_363);
+    expect(estimateNetSalary({ ...base, annualSalary: 100_000_000 }).monthlyNet).toBe(6_530_923);
+  });
 });

@@ -11,6 +11,13 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "net-salary-deductions-2026",
+    title: "연봉 4,000만 원 실수령액, 월급에서 떼는 6가지 항목 풀이 (2026년)",
+    description: "연봉 4천만 원이면 월 실수령액은 약 293만 원. 국민연금·건강보험·소득세 등 6가지 공제가 각각 얼마이고, 부양가족·비과세로 어떻게 달라지는지 정리했습니다.",
+    calculator: "net-salary",
+    published: "2026-11-25",
+  },
+  {
     slug: "pension-savings-yearend",
     title: "연금저축·IRP로 연말정산 환급 늘리기 (2026년 귀속)",
     description: "12월 31일까지 넣은 금액만 공제됩니다. 총급여별 공제율, 한도, 실제 환급 증가액을 계산 예시로 정리했습니다.",
