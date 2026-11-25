@@ -11,6 +11,13 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "check-last-year-salary",
+    title: "작년 연봉(총급여) 확인하는 법, 홈택스 원천징수영수증 조회",
+    description: "작년 총급여와 낸 세금은 근로소득 원천징수영수증 한 장에 다 나옵니다. 홈택스·손택스 조회 경로, 영수증에서 볼 칸, 연봉과 총급여의 차이, 이직자·퇴사자 확인법까지 정리했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
     slug: "dual-income-couple-yearend",
     title: "맞벌이 부부 연말정산, 공제 몰아주기 항목별 정리",
     description: "자녀 공제는 소득 높은 쪽, 의료비와 카드는 소득 낮은 쪽이 유리한 경우가 많습니다. 총급여 1억 원과 3,500만 원 부부 예시로 항목별 환급 차이를 계산했습니다.",
