@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import WeeklyHolidayForm from "./WeeklyHolidayForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("weekly-holiday-pay"),
   title: "주휴수당 계산기 (2026년 최저시급 10,320원 기준)",
   description: "시급과 주 근로시간만 넣으면 주휴수당, 주급, 월급 환산액을 계산합니다. 주 15시간 이상 알바·단시간 근로자 모두 적용.",
 };

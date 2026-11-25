@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import LoanForm from "./LoanForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("loan-interest"),
   title: "대출 이자 계산기 (원리금균등·원금균등·만기일시 비교)",
   description: "대출금, 금리, 기간을 넣으면 상환 방식 3가지의 월 상환액과 총 이자를 한 번에 비교하고 연도별 상환 스케줄을 보여 줍니다.",
 };
