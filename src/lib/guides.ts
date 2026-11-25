@@ -11,6 +11,27 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "dual-income-couple-yearend",
+    title: "맞벌이 부부 연말정산, 공제 몰아주기 항목별 정리",
+    description: "자녀 공제는 소득 높은 쪽, 의료비와 카드는 소득 낮은 쪽이 유리한 경우가 많습니다. 총급여 1억 원과 3,500만 원 부부 예시로 항목별 환급 차이를 계산했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
+    slug: "medical-expense-credit",
+    title: "의료비 세액공제, 총급여 3% 넘어야 시작 (놓치기 쉬운 항목 정리)",
+    description: "총급여 5,000만 원이면 의료비 150만 원까지는 공제가 0원입니다. 3% 기준, 한도 없는 가족, 안경·산후조리원·실손보험금 처리까지 계산 예시로 정리했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
+    slug: "monthly-rent-tax-credit",
+    title: "월세 세액공제 받는 법, 월 60만 원이면 환급 얼마? (2026년 귀속)",
+    description: "총급여 5,000만 원 무주택 세대주가 월세 60만 원을 내면 연말정산 환급이 약 135만 원 늘어납니다. 대상 요건, 공제율, 서류, 놓쳤을 때 경정청구까지 정리했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
     slug: "loan-repayment-methods",
     title: "원리금균등 vs 원금균등 vs 만기일시, 3억 대출 이자 비교",
     description: "3억 원을 연 4%로 30년 빌리면 원리금균등은 월 143만 원, 총이자 2억 1,560만 원. 원금균등으로 바꾸면 이자가 3,500만 원 줄어듭니다. 상환 방식별 차이와 고르는 기준을 정리했습니다.",
