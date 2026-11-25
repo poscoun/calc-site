@@ -7,11 +7,11 @@ export default function GuideFooter({ slug }: { slug: string }) {
   const calc = calculators.find((c) => c.slug === self?.calculator);
   const others = guides.filter((g) => g.slug !== slug).slice(0, 3);
   return (
-    <aside className="mt-12 space-y-6 border-t border-black/10 dark:border-white/15 pt-6">
+    <aside className="mt-12 space-y-6 border-t border-line pt-6">
       {calc && (
         <Link
           href={`/calculators/${calc.slug}/`}
-          className="block rounded-lg border-2 border-black/20 dark:border-white/30 p-4 font-semibold"
+          className="block rounded-xl border-2 border-accent bg-accent-soft p-4 font-semibold"
         >
           내 숫자로 바로 계산해 보기: {calc.title} →
         </Link>
