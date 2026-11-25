@@ -1,0 +1,34 @@
+name: IndexNow
+# main에 페이지 변경이 머지되면 Cloudflare 배포 완료를 기다렸다가 네이버(IndexNow)에 새 주소를 알린다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/app/**"
+      - "src/lib/calculators.ts"
+      - "src/lib/guides.ts"
+permissions:
+  contents: read
+  checks: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 바뀐 파일로 주소를 골라 전송
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            files=$(git diff --name-only "$BEFORE" "$GITHUB_SHA")
+          else
+            files=$(git diff --name-only HEAD~1 HEAD)
+          fi
+          node --experimental-strip-types scripts/indexnow.ts $files
