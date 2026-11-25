@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { calculators } from "@/lib/calculators";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
-  description: "연말정산, 연봉 실수령액, 퇴직금 등 생활 금융 계산기와 상황별 해설",
+  description: "연말정산 환급, 연봉 실수령액, 퇴직금, 대출 이자를 최신 법령 기준으로 계산하고 계산 과정을 풀어 주는 생활 금융 계산기",
   alternates: { canonical: "./" },
   openGraph: { siteName: SITE_NAME, locale: "ko_KR", type: "website" },
   // 검색엔진 소유 확인 (공개 값)
@@ -26,10 +27,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </nav>
         </header>
         <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">{children}</main>
-        <footer className="border-t border-line text-xs opacity-70">
-          <p className="mx-auto max-w-3xl px-4 py-4">
-            본 계산 결과는 참고용이며 세무 자문이 아닙니다. 정확한 금액은 국세청 홈택스에서 확인하세요.
-          </p>
+        <footer className="border-t border-line text-xs">
+          <div className="mx-auto max-w-3xl space-y-3 px-4 py-6">
+            <nav aria-label="계산기 목록" className="flex flex-wrap gap-x-4 gap-y-1 opacity-80">
+              {calculators
+                .filter((c) => c.status === "live")
+                .map((c) => (
+                  <Link key={c.slug} href={`/calculators/${c.slug}/`} className="hover:underline">{c.title}</Link>
+                ))}
+              <Link href="/guides/" className="hover:underline">돈 계산 가이드</Link>
+            </nav>
+            <p className="opacity-60">
+              계산 결과는 공개된 법령과 고시를 바탕으로 한 추정치이며 세무·법률 자문이 아닙니다. 실제 금액은 회사, 금융기관, 국세청 안내로 확인하세요.
+            </p>
+            <p className="opacity-60">© 2026 {SITE_NAME}</p>
+          </div>
         </footer>
       </body>
     </html>

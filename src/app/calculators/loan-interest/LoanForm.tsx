@@ -82,7 +82,7 @@ export default function LoanForm() {
             {METHODS.map((m) => (
               <label
                 key={m}
-                className={`cursor-pointer rounded-lg border px-2 py-2.5 text-center text-sm font-medium ${m === method ? "border-accent bg-accent-soft text-accent" : "border-line"}`}
+                className={`cursor-pointer rounded-lg border px-2 py-2.5 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent text-center text-sm font-medium ${m === method ? "border-accent bg-accent-soft text-accent" : "border-line"}`}
               >
                 <input type="radio" name="method" value={m} checked={m === method} onChange={() => setMethod(m)} className="sr-only" />
                 {METHOD_LABELS[m]}
