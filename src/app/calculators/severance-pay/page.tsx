@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { guidesFor } from "@/lib/guides";
 import SeveranceForm from "./SeveranceForm";
 
 export const metadata: Metadata = {
@@ -16,6 +17,17 @@ export default function Page() {
         <p className="opacity-80">평균임금으로 법정 퇴직금을 계산하고, 퇴직소득세를 뺀 실제 수령액까지 보여 드립니다. 입력값은 이 기기 밖으로 전송되지 않습니다.</p>
       </header>
       <SeveranceForm />
+
+      <section className="space-y-2">
+        <h2 className="text-lg font-bold">더 알아보기</h2>
+        <ul className="space-y-2 text-sm">
+          {guidesFor("severance-pay").map((g) => (
+            <li key={g.slug}>
+              <Link href={`/guides/${g.slug}/`} className="underline underline-offset-2">{g.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section className="space-y-2 text-sm">
         <h2 className="text-lg font-bold">계산 기준</h2>
