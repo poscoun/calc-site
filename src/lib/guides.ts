@@ -11,6 +11,20 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "weekly-holiday-pay-2026",
+    title: "2026년 주휴수당 계산법, 주 15시간부터 (시간별 금액표)",
+    description: "2026년 최저임금 10,320원 기준 주 40시간이면 주휴수당은 주 82,560원, 월급은 209시간 2,156,880원입니다. 지급 조건, 단시간 계산식, 주 15·20·25시간 금액표를 정리했습니다.",
+    calculator: "weekly-holiday-pay",
+    published: "2026-11-25",
+  },
+  {
+    slug: "annual-leave-days-pay",
+    title: "연차 발생 기준과 연차수당 계산법, 1년 미만 11일부터 최대 25일까지",
+    description: "입사 첫해는 한 달 개근마다 1일씩 최대 11일, 1년이 지나면 15일, 이후 2년마다 1일씩 늘어 최대 25일입니다. 근속연수별 연차표와 월급 300만 원 기준 연차수당 계산 예시를 정리했습니다.",
+    calculator: "annual-leave",
+    published: "2026-11-25",
+  },
+  {
     slug: "unemployment-benefit-2026",
     title: "2026년 실업급여 얼마 받나? 하루 66,048원~68,100원, 계산법 총정리",
     description: "2026년 실업급여는 하루 최소 66,048원, 최대 68,100원입니다. 월급 300만 원, 35세, 가입 4년이면 180일간 약 1,189만 원. 계산법, 받는 일수, 신청 조건을 정리했습니다.",
