@@ -11,6 +11,13 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "loan-repayment-methods",
+    title: "원리금균등 vs 원금균등 vs 만기일시, 3억 대출 이자 비교",
+    description: "3억 원을 연 4%로 30년 빌리면 원리금균등은 월 143만 원, 총이자 2억 1,560만 원. 원금균등으로 바꾸면 이자가 3,500만 원 줄어듭니다. 상환 방식별 차이와 고르는 기준을 정리했습니다.",
+    calculator: "loan-interest",
+    published: "2026-11-25",
+  },
+  {
     slug: "severance-pay-calculation",
     title: "퇴직금 계산법과 퇴직소득세, 근속 5·10·20년 예시로 정리",
     description: "월급 400만 원, 5년 근무하면 퇴직금은 약 1,979만 원이고 세금은 30만 원 정도입니다. 평균임금 계산법, 상여금·연차수당 반영, 퇴직일에 따라 달라지는 금액까지 예시로 정리했습니다.",
