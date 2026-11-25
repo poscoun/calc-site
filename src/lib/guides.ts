@@ -11,6 +11,20 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "dsr-stress-limit-2026",
+    title: "DSR 40%와 스트레스 DSR, 연봉 5,000만 원 주담대 한도 계산 (2026년)",
+    description: "연봉 5,000만 원, 금리 4%, 30년이면 DSR 40% 한도는 약 3억 4,910만 원이지만, 수도권 변동금리는 스트레스 금리 3%p가 붙어 약 2억 5,051만 원으로 줄어듭니다. DSR 계산법과 한도를 늘리는 방법을 정리했습니다.",
+    calculator: "loan-interest",
+    published: "2026-11-25",
+  },
+  {
+    slug: "loan-prepayment-fee",
+    title: "중도상환수수료 계산법, 1억 갚으면 얼마? (2025년 개편 후 요율)",
+    description: "주담대 1억 원을 1년 만에 갚으면 변동금리 0.55% 기준 중도상환수수료는 366,666원입니다. 계산식, 2025년 개편 전후 요율, 3년 면제와 연 10% 면제, 대환 손익 계산까지 정리했습니다.",
+    calculator: "loan-interest",
+    published: "2026-11-25",
+  },
+  {
     slug: "severance-under-one-year",
     title: "퇴직금 1년 미만이면 못 받나? 364일과 365일의 차이",
     description: "퇴직금은 계속근로 1년, 4주 평균 주 15시간 이상이어야 받습니다. 월급 300만 원이면 364일 근무는 0원, 365일 근무는 약 297만 원. 1년 계산법, 계약 갱신·수습 합산, 알바도 받는 조건을 정리했습니다.",
