@@ -11,6 +11,27 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "severance-under-one-year",
+    title: "퇴직금 1년 미만이면 못 받나? 364일과 365일의 차이",
+    description: "퇴직금은 계속근로 1년, 4주 평균 주 15시간 이상이어야 받습니다. 월급 300만 원이면 364일 근무는 0원, 365일 근무는 약 297만 원. 1년 계산법, 계약 갱신·수습 합산, 알바도 받는 조건을 정리했습니다.",
+    calculator: "severance-pay",
+    published: "2026-11-25",
+  },
+  {
+    slug: "severance-payment-deadline",
+    title: "퇴직금 지급기한은 14일, 늦으면 연 20% 지연이자 (IRP 수령까지)",
+    description: "퇴직금은 퇴직일부터 14일 안에 받아야 합니다. 1,000만 원이 30일 늦으면 지연이자는 164,383원. 지급기한 연장, IRP로 받는 원칙과 예외, 못 받았을 때 진정 절차를 정리했습니다.",
+    calculator: "severance-pay",
+    published: "2026-11-25",
+  },
+  {
+    slug: "severance-interim-settlement",
+    title: "퇴직금 중간정산 가능한 사유 7가지와 받기 전 손익 계산",
+    description: "퇴직금 중간정산은 무주택자 주택 구입, 전세금, 6개월 이상 요양 등 법이 정한 사유에만 가능합니다. 월급이 오르는 중이라면 중간정산으로 퇴직금이 약 495만 원 줄어드는 예시까지 정리했습니다.",
+    calculator: "severance-pay",
+    published: "2026-11-25",
+  },
+  {
     slug: "net-salary-table-2026",
     title: "2026년 연봉 실수령액 표, 2천만~1억 원 100만 원 단위",
     description: "2026년 연봉별 월 실수령액 표입니다. 연봉 3,000만 원은 월 224만 원, 5,000만 원은 357만 원, 1억 원은 653만 원. 4대보험과 소득세 항목별 공제액, 가족 수에 따른 차이까지 정리했습니다.",
