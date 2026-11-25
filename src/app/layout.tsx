@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { calculators } from "@/lib/calculators";
-import { ADSENSE_CLIENT, SITE_NAME, SITE_URL } from "@/lib/site";
+import { ADSENSE_CLIENT, SITE_NAME, SITE_URL, shareMeta } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
   description: "연말정산 환급, 연봉 실수령액, 퇴직금, 실업급여, 주휴수당·연차, 대출 이자를 최신 법령 기준으로 계산하고 계산 과정을 풀어 주는 생활 금융 계산기",
   alternates: { canonical: "./" },
-  openGraph: { siteName: SITE_NAME, locale: "ko_KR", type: "website" },
+  ...shareMeta(),
   // 검색엔진 소유 확인 (공개 값)
   verification: {
     other: { "naver-site-verification": "124378ed62369d81d8ce884d9f302ea0376a9e02" },

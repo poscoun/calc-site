@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import UnemploymentForm from "./UnemploymentForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("unemployment-benefit"),
   title: "실업급여 계산기 (2026년 상한액 68,100원 반영)",
   description: "최근 3개월 급여, 나이, 고용보험 가입 기간만 넣으면 2026년 기준 실업급여(구직급여) 하루 금액과 받는 일수, 총액을 계산합니다.",
 };

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import { estimateNetSalary } from "@/lib/payroll/net-salary";
 import NetSalaryForm from "./NetSalaryForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("net-salary"),
   title: "2026 연봉 실수령액 계산기 (4대보험·소득세 반영)",
   description: "연봉을 넣으면 국민연금 4.75%, 건강보험 3.595% 등 2026년 4대보험과 근로소득 간이세액표를 반영한 월 실수령액을 계산합니다.",
 };

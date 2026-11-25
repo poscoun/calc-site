@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import YearendForm from "./YearendForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("yearend-tax"),
   title: "연말정산 환급 예상 계산기 (2026년 귀속)",
   description: "총급여와 기납부세액으로 2026년 귀속 연말정산 환급액을 미리 계산합니다.",
 };

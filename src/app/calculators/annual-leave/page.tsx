@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import AnnualLeaveForm from "./AnnualLeaveForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("annual-leave"),
   title: "연차 계산기 (발생일수·연차수당)",
   description: "입사일만 넣으면 올해 연차가 며칠인지, 다음 연차는 언제 생기는지 계산합니다. 남은 연차를 돈으로 받는 연차수당도 함께 계산합니다.",
 };

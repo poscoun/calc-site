@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/site";
 import Link from "next/link";
 import { guidesFor } from "@/lib/guides";
 import SeveranceForm from "./SeveranceForm";
 
 export const metadata: Metadata = {
+  ...shareMeta("severance-pay"),
   title: "퇴직금 계산기 (평균임금·퇴직소득세 자동 계산)",
   description: "입사일, 마지막 근무일, 최근 3개월 급여만 넣으면 법정 퇴직금과 퇴직소득세, 세후 수령액을 계산합니다.",
 };
