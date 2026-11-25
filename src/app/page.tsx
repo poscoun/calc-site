@@ -38,7 +38,7 @@ export default function Home() {
 
       <section className="space-y-4">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-xl font-bold">절세 가이드</h2>
+          <h2 className="text-xl font-bold">돈 계산 가이드</h2>
           <Link href="/guides/" className="text-sm underline underline-offset-2 opacity-80">전체 보기</Link>
         </div>
         <ul className="divide-y divide-line">
