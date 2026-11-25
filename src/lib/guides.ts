@@ -11,6 +11,13 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "severance-pay-calculation",
+    title: "퇴직금 계산법과 퇴직소득세, 근속 5·10·20년 예시로 정리",
+    description: "월급 400만 원, 5년 근무하면 퇴직금은 약 1,979만 원이고 세금은 30만 원 정도입니다. 평균임금 계산법, 상여금·연차수당 반영, 퇴직일에 따라 달라지는 금액까지 예시로 정리했습니다.",
+    calculator: "severance-pay",
+    published: "2026-11-25",
+  },
+  {
     slug: "net-salary-deductions-2026",
     title: "연봉 4,000만 원 실수령액, 월급에서 떼는 6가지 항목 풀이 (2026년)",
     description: "연봉 4천만 원이면 월 실수령액은 약 293만 원. 국민연금·건강보험·소득세 등 6가지 공제가 각각 얼마이고, 부양가족·비과세로 어떻게 달라지는지 정리했습니다.",

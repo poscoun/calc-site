@@ -11,4 +11,4 @@ const nextConfig: NextConfig = {
 };
 
 // remark-gfm: 표(|...|) 문법 지원
-export default createMDX({ options: { remarkPlugins: [remarkGfm] } })(nextConfig);
+export default createMDX({ options: { remarkPlugins: [[remarkGfm, { singleTilde: false }]] } })(nextConfig);
