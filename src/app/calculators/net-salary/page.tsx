@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { guidesFor } from "@/lib/guides";
 import { estimateNetSalary } from "@/lib/payroll/net-salary";
 import NetSalaryForm from "./NetSalaryForm";
 
@@ -48,6 +49,17 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="text-lg font-bold">더 알아보기</h2>
+        <ul className="space-y-2 text-sm">
+          {guidesFor("net-salary").map((g) => (
+            <li key={g.slug}>
+              <Link href={`/guides/${g.slug}/`} className="underline underline-offset-2">{g.title}</Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="space-y-2 text-sm">
