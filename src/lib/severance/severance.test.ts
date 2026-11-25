@@ -113,3 +113,33 @@ describe("estimateSeverance", () => {
     expect([plus1.serviceDays, plus1.tax!.years, total(plus1)]).toEqual([1827, 6, 232_369]);
   });
 });
+
+describe("해설글 수치 (severance-under-one-year, -payment-deadline, -interim-settlement)", () => {
+  const e = (startDate: string, lastWorkDate: string, monthly: number) =>
+    estimateSeverance({ startDate, lastWorkDate, wages3m: monthly * 3, annualBonus: 0, annualLeavePay: 0 });
+  const taxOf = (r: ReturnType<typeof e>) => r.tax!.incomeTax + r.tax!.localTax;
+
+  it("364일은 0원, 365일은 퇴직금 발생", () => {
+    const short = e("2025-12-01", "2026-11-29", 3_000_000);
+    const full = e("2025-12-01", "2026-11-30", 3_000_000);
+    expect([short.serviceDays, short.severance]).toEqual([364, 0]);
+    expect([full.serviceDays, full.severance, taxOf(full), full.net]).toEqual([365, 2_967_032, 34_328, 2_932_704]);
+  });
+
+  it("지연이자 연 20% 예시", () => {
+    const interest = (amount: number, days: number) => Math.floor((amount * 20 * days) / 100 / 365);
+    expect([interest(10_000_000, 30), interest(20_000_000, 60)]).toEqual([164_383, 657_534]);
+  });
+
+  it("중간정산 vs 한 번에 받기", () => {
+    const first = e("2016-12-01", "2021-11-30", 3_000_000);
+    const second = e("2021-12-01", "2026-11-30", 4_000_000);
+    const whole = e("2016-12-01", "2026-11-30", 4_000_000);
+    expect([first.severance, taxOf(first)]).toEqual([14_843_293, 171_861]);
+    expect([second.severance, taxOf(second)]).toEqual([19_791_058, 302_483]);
+    expect([whole.severance, taxOf(whole)]).toEqual([39_582_116, 472_967]);
+    expect(whole.severance - first.severance - second.severance).toBe(4_947_765);
+    expect(taxOf(first) + taxOf(second)).toBe(474_344);
+    expect(taxOf(second) * 2).toBe(604_966);
+  });
+});
