@@ -49,6 +49,9 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        <p className="text-sm">
+          <Link href="/guides/net-salary-table-2026/" className="font-medium text-accent underline underline-offset-2">2천만~1억 원 100만 원 단위 전체 표 보기</Link>
+        </p>
       </section>
 
       <section className="space-y-2">
