@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { calculators } from "@/lib/calculators";
+import { guidesByTopic } from "@/lib/guide-topics";
 import { guides } from "@/lib/guides";
 
 export default function Home() {
@@ -39,7 +40,7 @@ export default function Home() {
       <section className="space-y-4">
         <div className="flex items-baseline justify-between">
           <h2 className="text-xl font-bold">돈 계산 가이드</h2>
-          <Link href="/guides/" className="text-sm underline underline-offset-2 opacity-80">전체 보기</Link>
+          <Link href="/guides/" className="text-sm underline underline-offset-2 opacity-80">전체 {guides.length}편 보기</Link>
         </div>
         <ul className="divide-y divide-line">
           {guides.slice(0, 5).map((g) => (
@@ -51,6 +52,26 @@ export default function Home() {
             </li>
           ))}
         </ul>
+
+        <div className="space-y-2 pt-2">
+          <h3 className="text-base font-bold">주제별로 보기</h3>
+          {guidesByTopic().map((t) => (
+            <details key={t.id} className="rounded-xl border border-line">
+              <summary className="flex cursor-pointer items-center gap-2 px-4 py-3 font-semibold">
+                <span className="chevron inline-block text-xs opacity-60" aria-hidden>▶</span>
+                {t.name}
+                <span className="ml-auto rounded-full bg-accent-soft px-2 py-0.5 text-xs font-medium text-accent">{t.guides.length}편</span>
+              </summary>
+              <ul className="divide-y divide-line border-t border-line px-4">
+                {t.guides.map((g) => (
+                  <li key={g.slug}>
+                    <Link href={`/guides/${g.slug}/`} className="block py-2.5 text-sm">{g.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
       </section>
     </div>
   );
