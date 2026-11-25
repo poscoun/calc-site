@@ -11,7 +11,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold leading-snug sm:text-3xl">
           내 돈 계산, <span className="text-accent">숫자 몇 개</span>로 끝내세요
         </h1>
-        <p className="opacity-80">연말정산부터 연봉 실수령액, 퇴직금, 대출 이자까지. 최신 법령 기준으로 계산하고, 왜 그 금액이 나오는지 풀어서 보여 드립니다.</p>
+        <p className="opacity-80">연말정산부터 연봉 실수령액, 퇴직금, 실업급여, 대출 이자까지. 최신 법령 기준으로 계산하고, 왜 그 금액이 나오는지 풀어서 보여 드립니다.</p>
       </section>
 
       <section className="space-y-3">
