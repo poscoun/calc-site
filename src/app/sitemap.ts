@@ -17,6 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       })),
     { url: `${SITE_URL}/guides/`, changeFrequency: "weekly", priority: 0.6 },
+    ...["about", "privacy", "contact"].map((p) => ({
+      url: `${SITE_URL}/${p}/`,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    })),
     ...guides.map((g) => ({
       url: `${SITE_URL}/guides/${g.slug}/`,
       lastModified: g.published,

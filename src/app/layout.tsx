@@ -40,6 +40,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <p className="opacity-60">
               계산 결과는 공개된 법령과 고시를 바탕으로 한 추정치이며 세무·법률 자문이 아닙니다. 실제 금액은 회사, 금융기관, 국세청 안내로 확인하세요.
             </p>
+            <nav aria-label="사이트 정보" className="flex flex-wrap gap-x-4 gap-y-1 opacity-80">
+              <Link href="/about/" className="hover:underline">사이트 소개</Link>
+              <Link href="/privacy/" className="font-semibold hover:underline">개인정보처리방침</Link>
+              <Link href="/contact/" className="hover:underline">문의하기</Link>
+            </nav>
             <p className="opacity-60">© 2026 {SITE_NAME}</p>
           </div>
         </footer>
