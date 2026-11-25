@@ -11,6 +11,27 @@ export type GuideMeta = {
 // 최신 글이 위로
 export const guides: GuideMeta[] = [
   {
+    slug: "yearend-additional-tax",
+    title: "연말정산 추가 납부가 나오는 이유와 줄이는 법 (원천징수 80·100·120%)",
+    description: "연봉 5,000만 원에 공제가 적으면 원천징수 100%여도 13만 원을 더 냅니다. 80%를 고르면 71만 원으로 늘어납니다. 추가 납부 원인, 분납, 원천징수 비율 바꾸는 법을 정리했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
+    slug: "dependent-deduction-requirements",
+    title: "부양가족 기본공제 요건, 나이·소득 100만 원·따로 사는 부모님 (2026년 귀속)",
+    description: "부양가족 1명당 150만 원 소득공제. 총급여 5,000만 원이면 부모님 한 분 공제로 환급이 약 25만 원 늘어납니다. 나이·소득 요건, 따로 사는 부모님, 중복공제 주의점을 정리했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
+    slug: "yearend-refund-timing",
+    title: "연말정산 환급금 언제 들어오나? 2월 급여 vs 3월, 일정 총정리",
+    description: "2026년 귀속 연말정산 환급금은 대부분 2027년 2월 급여에 함께 들어옵니다. 간소화 개통부터 입금까지 일정, 3월로 밀리는 이유, 못 받았을 때 대처법을 정리했습니다.",
+    calculator: "yearend-tax",
+    published: "2026-11-25",
+  },
+  {
     slug: "check-last-year-salary",
     title: "작년 연봉(총급여) 확인하는 법, 홈택스 원천징수영수증 조회",
     description: "작년 총급여와 낸 세금은 근로소득 원천징수영수증 한 장에 다 나옵니다. 홈택스·손택스 조회 경로, 영수증에서 볼 칸, 연봉과 총급여의 차이, 이직자·퇴사자 확인법까지 정리했습니다.",

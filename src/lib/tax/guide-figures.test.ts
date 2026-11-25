@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { employeeInsurance, taxTableAmount } from "../payroll/net-salary";
+import { employeeInsurance, estimateNetSalary, taxTableAmount } from "../payroll/net-salary";
 import { estimateYearend, type YearendInput } from "./yearend";
 
 /** 해설글(월세·의료비·맞벌이) 예시 금액 고정. 4대보험·원천징수는 간이세액표 기준으로 가정 */
@@ -66,5 +66,38 @@ describe("맞벌이 부부 글 (A 1억, B 3,500만)", () => {
     const a = gain(A, { card: { credit: (3_000 - onB) * MAN } });
     const b = gain(B, { card: { credit: onB * MAN } });
     expect(a + b).toBe(expected);
+  });
+});
+
+describe("부양가족 기본공제 글 (총급여 5,000만 원)", () => {
+  const w = worker(5_000);
+  it.each([
+    ["65세 부모 1명", { basic: 2 }, 247_500],
+    ["72세 부모 1명 (경로우대)", { basic: 2, seniors: 1 }, 412_500],
+    ["두 분 모두", { basic: 3, seniors: 1 }, 660_000],
+  ])("%s", (_, persons, expected) => {
+    expect(gain(w, { persons })).toBe(expected);
+  });
+});
+
+describe("추가 납부 글 (연봉 5,000만 원, 카드 1,500만 원)", () => {
+  it.each([
+    [80, 173_850, 3_570_596, -710_971],
+    [100, 217_320, 3_522_776, -137_167],
+    [120, 260_780, 3_474_976, 436_505],
+  ] as const)("원천징수 %i%%", (ratio, tax, net, refund) => {
+    const n = estimateNetSalary({ annualSalary: 5_000 * MAN, monthlyNonTaxable: 0, family: 1, children: 0, taxRatio: ratio });
+    expect(n.incomeTax).toBe(tax);
+    expect(n.monthlyNet).toBe(net);
+    const ins = n.insurance;
+    const r = estimateYearend({
+      totalSalary: 5_000 * MAN,
+      prepaidTax: n.incomeTax * 12,
+      persons: { basic: 1 },
+      nationalPension: ins.nationalPension * 12,
+      healthEmploymentInsurance: (ins.health + ins.longTermCare + ins.employment) * 12,
+      card: { credit: 1_500 * MAN },
+    });
+    expect(r.refund).toBe(refund);
   });
 });
