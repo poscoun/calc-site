@@ -13,7 +13,10 @@ function check(name: string, v: number): number {
   return v;
 }
 
-/* ───────────── 신용카드 등 소득공제 (조특법 제126조의2) ───────────── */
+/* ───────────── 신용카드 등 소득공제 (조특법 제126조의2) ─────────────
+ * 2026.1.1. 이후 사용분부터 자녀 1명당 기본한도 증액 (7천만 이하 50만, 초과 25만, 최대 2명).
+ * 대상 자녀: 기본공제 대상 20세 이하 직계비속 (조특법 시행령). 출처: 언론 보도 2026.11.21, jptcalc.kr.
+ */
 
 export type CardSpending = {
   credit: number;
@@ -62,7 +65,11 @@ export function cardDeduction(totalSalary: number, spend: CardSpending, cardLimi
 
 /* ───────────── 세액공제 ───────────── */
 
-/** 자녀세액공제 (소득세법 제59조의2): 1명 25만, 2명 55만, 3명부터 1명당 40만 추가 */
+/**
+ * 자녀세액공제 (소득세법 제59조의2): 1명 25만, 2명 55만, 3명부터 1명당 40만 추가.
+ * 대상 나이는 법률 제21548호(2026.4.21.) 부칙 제2조로 2026년 귀속 9세 이상, 2017년생 제외.
+ * 출처: 법제처 생활법령 자녀세액공제 (2026.10.15 기준). 나이 판정은 입력 단계에서 사용자가 한다.
+ */
 export function childTaxCredit(eligibleChildren: number): number {
   const n = Math.floor(check("자녀 수", eligibleChildren));
   if (n === 0) return 0;

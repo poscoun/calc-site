@@ -126,7 +126,7 @@ export default function YearendForm() {
         <Field label="기본공제 인원 (본인 포함)" name="basic" suffix="명" {...f} />
         <Field label="70세 이상" name="seniors" suffix="명" {...f} />
         <Field label="장애인" name="disabled" suffix="명" {...f} />
-        <Field label="자녀세액공제 대상 자녀" name="creditKids" suffix="명" {...f} hint="기본공제 대상 자녀 중 공제 대상 나이에 해당하는 자녀" />
+        <Field label="자녀세액공제 대상 자녀" name="creditKids" suffix="명" {...f} hint="2026년 귀속: 9세 이상 20세 이하 (2006~2016년생). 2017년생은 경과조치로 제외" />
         <Field label="올해 출산·입양 (몇째인지, 없으면 0)" name="birthOrder" suffix="째" {...f} />
       </Section>
 
@@ -136,7 +136,7 @@ export default function YearendForm() {
         <Field label="도서·공연·영화 등" name="culture" {...f} hint="총급여 7천만 원 이하만 30%" />
         <Field label="전통시장" name="market" {...f} />
         <Field label="대중교통" name="transit" {...f} />
-        <Field label="카드 한도 증액 대상 자녀" name="cardKids" suffix="명" {...f} hint="2026년 귀속부터 자녀 수에 따라 기본한도 증액" />
+        <Field label="카드 한도 증액 대상 자녀" name="cardKids" suffix="명" {...f} hint="기본공제 대상 20세 이하 자녀 (2006년 이후 출생). 최대 2명까지 반영" />
       </Section>
 
       <Section title="4. 보험·의료·교육·기부">
